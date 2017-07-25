@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Results</title>
+{% endblock %}
+{% block body %}
+    {% if rentproperties %}
+        {% for property in rentproperties %}
+            <div class="col-xs-12" style="background-image: url('media/{{'property.image1'}})">
+                
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if buyproperties %}
+        {% for property in buyproperties %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

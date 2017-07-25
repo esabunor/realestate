@@ -1,8 +1,22 @@
-<!DOCtype>
+{% load static %}
+<!DOCTYPE html>
 <html>
     <head>
         {% block head %}
-        <title>base</title>
+        <meta name="theme-color" content="#ffffff">
+        <!-- Important Owl stylesheet -->
+        <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+
+        <!-- Default Theme -->
+        <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+        <link  rel="stylesheet" href="{% static 'Content/bootstrap.min.css' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="expires" content="Fri, 04 Apr 2014 23:59:59 GMT"/>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
         {% endblock %}
     </head>
     <body>
@@ -10,4 +24,7 @@
         <p> base </p>
         {% endblock %}
     </body>
+    <script src="{% static 'scripts/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'scripts/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
 </html>

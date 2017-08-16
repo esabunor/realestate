@@ -1,7 +1,7 @@
 from django import forms
 from properties.models import PropertyType
 class BuyPropertySearchForm(forms.Form):
-    property_type = forms.ModelChoiceField(queryset=PropertyType.objects.all(), widget=forms.Select(attrs={'class':"form-control"}))
+    property_type = forms.ModelChoiceField(queryset=PropertyType.objects.all(), widget=forms.Select(attrs={'class':"form-control", "placeholder":"Property Type"}))
     maxprice = forms.IntegerField(widget=forms.NumberInput(attrs={'class':"form-control"}))
     minprice = forms.IntegerField(widget=forms.NumberInput(attrs={'class':"form-control"}))
     bedrooms = forms.IntegerField(widget=forms.NumberInput(attrs={'class':"form-control"}))

@@ -1,17 +1,34 @@
 {% extends "base.html" %}
 {% block title %}
-<title>Results</title>
+Results
 {% endblock %}
 {% block body %}
-    {% if rentproperties %}
-        {% for property in rentproperties %}
-            <div class="col-xs-12" style="background-image: url('media/{{'property.image1'}})">
-                
+    {% if properties %}
+    <div class="row">
+        {% for property in properties %}
+            <div class="col s12 m4 l3">
+                <div class="card">
+                <div class="card-image">
+                    <img src="/media/{{ property.property_image1 }}">
+                    <span class="card-title">${{ property.price }}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{ property.location }}</p>
+                    <div class="divider"></div>
+                    <p>{{ property.description|slice:"100" }}...</p>
+                    <div class="divider"></div>
+                    <div class="section">
+                    <span class="">{{ property.carspace }}   </span><i class="material-icons tiny">directions_car</i>   
+                    <span class="">{{ property.bathrooms }}   </span><i class="material-icons tiny">hot_tub</i>   
+                    <span class="">{{ property.bedrooms }}   </span><i class="material-icons tiny">hotels</i>   
+                    </div>
+                </div>
+                </div>
             </div>
+        
         {% endfor %}
-    {% endif %}
-    {% if buyproperties %}
-        {% for property in buyproperties %}
-        {% endfor %}
+    </div>
+    {% else %}
+            <p>No Results found </p>
     {% endif %}
 {% endblock %}

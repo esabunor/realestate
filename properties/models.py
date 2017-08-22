@@ -25,7 +25,7 @@ class RentProperty(models.Model):
     property_image9 = models.ImageField(blank=True, upload_to='rentproperties')
 
     def __str__(self):
-        return "Property type: %s, Price: %s, Agent: %s" % (self.property_type, self.price, self.agent)
+        return "Property type: %s, Price: %s" % (self.property_type, self.price)
 
 class PropertyType(models.Model):
     type_of_property = models.TextField()
@@ -58,4 +58,4 @@ class BuyProperty(models.Model):
     property_image9 = models.ImageField(blank=True, upload_to='buyproperties')
 
     def __str__(self):
-        return "Property type: %s, Price: %s, Agent: %s" % (self.property_type, self.price, self.agent)
+        return "Property type: %s, Price: %s" % (self.property_type, self.price)

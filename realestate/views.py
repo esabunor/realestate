@@ -7,7 +7,7 @@ def search_view(request):
     buyform = BuyPropertySearchForm()
     rentform = RentPropertySearchForm()
     search_view_dict = {"buyform":buyform, "rentform":rentform}
-    return render(request, "test.html", search_view_dict)
+    return render(request, "search.html", search_view_dict)
 
 def result_view(request):
     properties = ""

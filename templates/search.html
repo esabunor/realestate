@@ -1,117 +1,98 @@
 {% extends 'base.html' %}
-{% block title %}
-Search
-{% endblock %}
 {% block body %}
 <nav class="nav-extended">
-    <div class="nav-content">
-        <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#test1">Test 1</a></li>
-        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-        </ul>
-    </div>
-</nav>
-<div  id="test2">
-    <div class="col s12">
-        <h3>Buy</h3>
-        <form class="col s12" action="{% url 'result_view' %}" method="post" >
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ buyform.property_type }}<label for="property_type">Property Type</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ buyform.maxprice }}<label for="maxprice">Max Price</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ buyform.minprice }}<label for="minprice">Min Price</label>
-                </div>
-            <div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ buyform.bedrooms }}<label for="bedrooms">Bedrooms</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ buyform.carspace }}<label for="carspace">Cars Space</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    {{ buyform.furnished }}
-                    <label for="furnished">Furnished</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ buyform.suburb }}<label for="surburb">Suburb</label>
-                </div>
-            </div>
-            {{ buyform.search_type }}
-        </form>
-    <div>
+<div class="nav-content">
+    <ul class="tabs tabs-transparent">
+    <li class="tab"><a href="#test1">Rent</a></li>
+    <li class="tab"><a class="active" href="#test2">Buy</a></li>
+    </ul>
 </div>
-
-<div id="test1">
-    <div  class="col s12">
-        <h3>Rent</h3>
-        <form class="col s12" action="{% url 'result_view' %}" method="post" >
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ rentform.property_type }}<label for="property_type">Property Type</label>
-                </div>
+</nav>
+<div id="test1" class="col s12">
+    <div class="card-panel">
+        <span class=""><h5>Rent</h5></span>
+    </div>
+    <br/>
+    <div class="container">
+        <form action="{% url 'result_view' %}" method="post">
+            <div class="input-field">
+                {{ rentform.property_type }}<label for="property_type">Property Type</label>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ rentform.maxprice }}<label for="maxprice">Max Price</label>
-                </div>
+            <div class="input-field">
+                {{ rentform.maxprice }}
+                <label for="maxprice">Max Price</label>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ rentform.minprice }}<label for="minprice">Min Price</label>
-                </div>
-            <div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ rentform.bedrooms }}<label for="bedrooms">Bedrooms</label>
-                </div>
+            <div class="input-field">
+                {{ rentform.minprice }}
+                <label for="minprice">Min Price</label>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ rentform.carspace }}<label for="carspace">Cars Space</label>
-                </div>
+            <div class="input-field">
+                {{ rentform.bedrooms }}
+                <label for="bedrooms">Bedrooms</label>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    {{ rentform.furnished }}
-                    <label for="furnished">Furnished</label>
-                </div>
+            <div class="input-field">
+                {{ rentform.carspace }}
+                <label for="carspace">Cars Space</label>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    
-                    {{ rentform.suburb }}<label for="surburb">Suburb</label>
-                </div>
+            <div class="input-field">
+                {{ rentform.furnished }}
+                <label for="furnished">Furnished</label>
+            </div>
+            <div class="input-field">
+                {{ rentform.suburb }}
+                <label for="surburb">Suburb</label>
             </div>
             {{ rentform.search_type }}
+            {% csrf_token %}
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
         </form>
     </div>
-</div> 
+</div>
+<div id="test2" class="col s12">
+    <div class="card-panel">
+        <span class=""><h5>Buy</h5></span>
+    </div>
+    <br/>
+    <div class="container">
+        <form action="{% url 'result_view' %}" method="post">
+            <div class="input-field">
+                {{ buyform.property_type }}<label for="property_type">Property Type</label>
+            </div>
+            <div class="input-field">
+                {{ buyform.maxprice }}
+                <label for="maxprice">Max Price</label>
+            </div>
+            <div class="input-field">
+                {{ buyform.minprice }}
+                <label for="minprice">Min Price</label>
+            </div>
+            <div class="input-field">
+                {{ buyform.bedrooms }}
+                <label for="bedrooms">Bedrooms</label>
+            </div>
+            <div class="input-field">
+                {{ buyform.carspace }}
+                <label for="carspace">Cars Space</label>
+            </div>
+            <div class="input-field">
+                {{ buyform.furnished }}
+                <label for="id_furnished">Furnished</label>
+            </div>
+            <div class="input-field">
+                {{ buyform.suburb }}
+                <label for="surburb">Suburb</label>
+            </div>
+            {{ buyform.search_type }}
+            {% csrf_token %}
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</div>
+            
 {% endblock %}
 {% block extrascripts %}
 <script>

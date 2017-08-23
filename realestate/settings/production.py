@@ -25,7 +25,7 @@ SECRET_KEY = '!h(b)0$+3h!73zg4c_+!s!mk5i(g==!-^opi^+_z+^izf0yz7j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.20.6', 'real-estate.herokuapp.com']
+ALLOWED_HOSTS = ['192.168.20.6', 'realestate-webapp.herokuapp.com']
 
 
 # Application definition
@@ -132,3 +132,9 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = '/Users/tegaesabunor/Documents/DjangoProjects/realestate/media/'
+
+# add this
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
